@@ -1,5 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 URL Shortener
+
+        // register form
+        form(method='POST' action='/generateShortId')
+          div.form-group
+            label(for='name') Original Url : 
+            input#name.form-control(type='text', placeholder="#{placeHolderName}" name='originalUrl')
+          button.btn.btn-primary(type='submit') Short
